@@ -1,0 +1,166 @@
+void collideBall(double* x, double* y, double* xV, double* yV, int N)       //Funkcja sprawdza odległość miedzy kulami (45 mozliwych kombinacji)
+{
+
+    volatile double cx = 0;                                                         //wspolczynnik dla x
+    volatile double cy = 0;                                                         //wpolczynnik dla y
+    volatile double dvx = 0;                                                        //delta v zmiana prędkosci dla x
+    volatile double dvy = 0;                                                        //delta v zmiana prędkości dla y
+    for (int i = 0; i < N-1; i++)
+    {
+        
+        if (pow((x[0] - x[i+1]),2) + pow((y[0] - y[i + 1]),2) <= 900)
+        {
+            cx = ((x[0] - x[i + 1]) * (xV[0] - xV[i + 1])) / pow(abs(x[0] - x[i + 1]),2);
+            cy = ((y[0] - y[i + 1]) * (yV[0] - yV[i + 1])) / pow(abs(y[0] - y[i + 1]),2);
+            dvx = cx * (x[i + 1] - x[0]);
+            dvy = cy * (y[i + 1] - y[0]);
+            xV[0] = xV[0] + dvx;
+            xV[i + 1] = xV[i + 1] - dvx;
+            yV[0] = yV[0] + dvy;
+            yV[i + 1] = yV[i + 1] - dvy;
+        }          
+    }
+
+    for (int i = 1; i < N - 1; i++)
+    {
+        
+        if (pow((x[1] - x[i + 1]), 2) + pow((y[1] - y[i + 1]), 2) <= 900)
+        {
+            cx = ((x[1] - x[i + 1]) * (xV[1] - xV[i + 1])) / pow(abs(x[1] - x[i + 1]), 2);
+            cy = ((y[1] - y[i + 1]) * (yV[1] - yV[i + 1])) / pow(abs(y[1] - y[i + 1]), 2);
+            dvx = cx * (x[i + 1] - x[1]);
+            dvy = cy * (y[i + 1] - y[1]);
+            xV[1] = xV[1] + dvx;
+            xV[i + 1] = xV[i + 1] - dvx;
+            yV[1] = yV[1] + dvy;
+            yV[i + 1] = yV[i + 1] - dvy;
+        }
+    }
+
+    for (int i = 2; i < N - 1; i++)
+    {
+        
+        if (pow((x[2] - x[i + 1]), 2) + pow((y[2] - y[i + 1]), 2) <= 900)
+        {
+            cx = ((x[2] - x[i + 1]) * (xV[2] - xV[i + 1])) / pow(abs(x[2] - x[i + 1]), 2);
+            cy = ((y[2] - y[i + 1]) * (yV[2] - yV[i + 1])) / pow(abs(y[2] - y[i + 1]), 2);
+            dvx = cx * (x[i + 1] - x[2]);
+            dvy = cy * (y[i + 1] - y[2]);
+            xV[2] = xV[2] + dvx;
+            xV[i + 1] = xV[i + 1] - dvx;
+            yV[2] = yV[2] + dvy;
+            yV[i + 1] = yV[i + 1] - dvy;
+        }
+    }
+
+    for (int i = 3; i < N - 1; i++)
+    {
+       
+        if (pow((x[3] - x[i + 1]), 2) + pow((y[3] - y[i + 1]), 2) <= 900)
+        {
+            cx = ((x[3] - x[i + 1]) * (xV[3] - xV[i + 1])) / pow(abs(x[3] - x[i + 1]), 2);
+            cy = ((y[3] - y[i + 1]) * (yV[3] - yV[i + 1])) / pow(abs(y[3] - y[i + 1]), 2);
+            dvx = cx * (x[i + 1] - x[3]);
+            dvy = cy * (y[i + 1] - y[3]);
+            xV[3] = xV[3] + dvx;
+            xV[i + 1] = xV[i + 1] - dvx;
+            yV[3] = yV[3] + dvy;
+            yV[i + 1] = yV[i + 1] - dvy;
+        }
+    }
+
+    for (int i = 4; i < N - 1; i++)
+    {
+        
+        if (pow((x[4] - x[i + 1]), 2) + pow((y[4] - y[i + 1]), 2) <= 900)
+        {
+            cx = ((x[4] - x[i + 1]) * (xV[4] - xV[i + 1])) / pow(abs(x[4] - x[i + 1]), 2);
+            cy = ((y[4] - y[i + 1]) * (yV[4] - yV[i + 1])) / pow(abs(y[4] - y[i + 1]), 2);
+            dvx = cx * (x[i + 1] - x[4]);
+            dvy = cy * (y[i + 1] - y[4]);
+            xV[4] = xV[4] + dvx;
+            xV[i + 1] = xV[i + 1] - dvx;
+            yV[4] = yV[4] + dvy;
+            yV[i + 1] = yV[i + 1] - dvy;
+        }
+    }
+
+    for (int i = 5; i < N - 1; i++)
+    {
+        
+        if (pow((x[5] - x[i + 1]), 2) + pow((y[5] - y[i + 1]), 2) <= 900)
+        {
+            cx = ((x[5] - x[i + 1]) * (xV[5] - xV[i + 1])) / pow(abs(x[5] - x[i + 1]), 2);
+            cy = ((y[5] - y[i + 1]) * (yV[5] - yV[i + 1])) / pow(abs(y[5] - y[i + 1]), 2);
+            dvx = cx * (x[i + 1] - x[5]);
+            dvy = cy * (y[i + 1] - y[5]);
+            xV[5] = xV[5] + dvx;
+            xV[i + 1] = xV[i + 1] - dvx;
+            yV[5] = yV[5] + dvy;
+            yV[i + 1] = yV[i + 1] - dvy;
+        }
+    }
+
+    for (int i = 6; i < N - 1; i++)
+    {
+        
+        if (pow((x[6] - x[i + 1]), 2) + pow((y[6] - y[i + 1]), 2) <= 900)
+        {
+            cx = ((x[6] - x[i + 1]) * (xV[6] - xV[i + 1])) / pow(abs(x[6] - x[i + 1]), 2);
+            cy = ((y[6] - y[i + 1]) * (yV[6] - yV[i + 1])) / pow(abs(y[6] - y[i + 1]), 2);
+            dvx = cx * (x[i + 1] - x[6]);
+            dvy = cy * (y[i + 1] - y[6]);
+            xV[6] = xV[6] + dvx;
+            xV[i + 1] = xV[i + 1] - dvx;
+            yV[6] = yV[6] + dvy;
+            yV[i + 1] = yV[i + 1] - dvy;
+        }
+    }
+
+    for (int i = 7; i < N - 1; i++)
+    {
+        
+        if (pow((x[7] - x[i + 1]), 2) + pow((y[7] - y[i + 1]), 2) <= 900)
+        {
+            cx = ((x[7] - x[i + 1]) * (xV[7] - xV[i + 1])) / pow(abs(x[7] - x[i + 1]), 2);
+            cy = ((y[7] - y[i + 1]) * (yV[7] - yV[i + 1])) / pow(abs(y[7] - y[i + 1]), 2);
+            dvx = cx * (x[i + 1] - x[7]);
+            dvy = cy * (y[i + 1] - y[7]);
+            xV[7] = xV[7] + dvx;
+            xV[i + 1] = xV[i + 1] - dvx;
+            yV[7] = yV[7] + dvy;
+            yV[i + 1] = yV[i + 1] - dvy;
+        }
+    }
+
+    for (int i = 8; i < N - 1; i++)
+    {
+        
+        if (pow((x[8] - x[i + 1]), 2) + pow((y[8] - y[i + 1]), 2) <= 900)
+        {
+            cx = ((x[8] - x[i + 1]) * (xV[8] - xV[i + 1])) / pow(abs(x[8] - x[i + 1]), 2);
+            cy = ((y[8] - y[i + 1]) * (yV[8] - yV[i + 1])) / pow(abs(y[8] - y[i + 1]), 2);
+            dvx = cx * (x[i + 1] - x[8]);
+            dvy = cy * (y[i + 1] - y[8]);
+            xV[8] = xV[8] + dvx;
+            xV[i + 1] = xV[i + 1] - dvx;
+            yV[8] = yV[8] + dvy;
+            yV[i + 1] = yV[i + 1] - dvy;
+        }
+    }
+
+    for (int i = 9; i < N - 1; i++)
+    {
+        if (pow((x[9] - x[i + 1]), 2) + pow((y[9] - y[i + 1]), 2) <= 900)
+        {
+            cx = ((x[9] - x[i + 1]) * (xV[9] - xV[i + 1])) / pow(abs(x[9] - x[i + 1]), 2);
+            cy = ((y[9] - y[i + 1]) * (yV[9] - yV[i + 1])) / pow(abs(y[9] - y[i + 1]), 2);
+            dvx = cx * (x[i + 1] - x[9]);
+            dvy = cy * (y[i + 1] - y[9]);
+            xV[9] = xV[9] + dvx;
+            xV[i + 1] = xV[i + 1] - dvx;
+            yV[9] = yV[9] + dvy;
+            yV[i + 1] = yV[i + 1] - dvy;
+        }
+    }
+}
